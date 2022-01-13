@@ -6,7 +6,7 @@
 /*   By: malton <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:26:50 by malton            #+#    #+#             */
-/*   Updated: 2021/12/08 10:26:52 by malton           ###   ########.fr       */
+/*   Updated: 2022/01/12 18:34:39 by malton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,4 @@ char	**ft_split(char *s, char c)
 	table[total + 1] = NULL;
 	main_creator((char *)s, c, total, table);
 	return (table);
-}
-
-void	ft_exit(char	*str)
-{
-	ft_putstr(str, 0, 0);
-	ft_putchar('\n', 0, 0);
-	exit(1);
 }

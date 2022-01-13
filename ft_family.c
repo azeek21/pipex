@@ -6,7 +6,7 @@
 /*   By: malton <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 19:35:09 by malton            #+#    #+#             */
-/*   Updated: 2021/12/10 19:35:11 by malton           ###   ########.fr       */
+/*   Updated: 2022/01/12 18:35:41 by malton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	pipex_process(t_info *info, char **av, char **env)
 	else if (pid == 0)
 		child_process(info, av, env);
 	else if (pid > 0)
-		parents_process(info, av, env, &pid);
+		parents_process(info, av, env);
 }
 
 void	child_process(t_info *info, char **av, char **env)
@@ -48,13 +48,13 @@ void	child_process(t_info *info, char **av, char **env)
 		ft_putstr("command not found: ", 1, 2);
 		ft_putendl_to_fd(info->cmd_arg[0], 2);
 		ft_free(info);
-		exit(1);
+		exit(127);
 	}
 }
 
-void	parents_process(t_info *info, char **av, char **env, pid_t *pid)
+void	parents_process(t_info *info, char **av, char **env)
 {
-	waitpid(*pid, &info->pid_status, WNOHANG);
+	waitpid(-1, NULL, 0);
 	info->fd_outfile = open(av[4], O_RDWR | O_CREAT | O_TRUNC, 0644);
 	if (info->fd_outfile < 0)
 	{
@@ -71,6 +71,6 @@ void	parents_process(t_info *info, char **av, char **env, pid_t *pid)
 		ft_putstr("command not found: ", 1, 2);
 		ft_putendl_to_fd(info->cmd_arg[0], 2);
 		ft_free(info);
-		exit(1);
+		exit(127);
 	}
 }

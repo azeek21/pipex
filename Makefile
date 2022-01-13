@@ -26,6 +26,7 @@ SRC = ft_family.c\
 	functions.c\
 	functions_1.c\
 	functions_2.c\
+	ft_cmd_checker.c\
 	pipex.c
 
 

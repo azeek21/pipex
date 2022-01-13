@@ -22,6 +22,8 @@ int	main(int argc, char **argv, char **env)
 		ft_putendl_to_fd("Usage: ./pipex file1 command1 command2 file2", 2);
 		exit(1);
 	}
+	if (ft_cmd_checker(argv))
+		return (0);
 	if (pipe(info.fd_pipe) == -1)
 	{
 		ft_putendl_to_fd("pipe failed !", 2);

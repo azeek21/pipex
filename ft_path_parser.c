@@ -98,8 +98,11 @@ char	**str_parser(char *str)
 	t_parsing	tab;
 	char		**res;
 
-	if (str == NULL)
+	if (str == NULL || ft_strlen(str) == 0)
+	{
+		ft_putstr("Command empty. Returning null\n", 1, 2);
 		return (NULL);
+	}
 	tab.len = count_bunch(str);
 	res = ft_calloc(sizeof(char *), tab.len + 1);
 	if (!res)

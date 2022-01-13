@@ -6,7 +6,7 @@
 /*   By: malton <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:12:55 by malton            #+#    #+#             */
-/*   Updated: 2021/12/06 15:12:57 by malton           ###   ########.fr       */
+/*   Updated: 2022/01/12 18:36:05 by malton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_info {
 	char	**cmd_arg;
 }	t_info;
 
+int		ft_cmd_checker(char **argv);
+int		check_path(char **env, char *cmd);
 void	ft_putchar(const char c, int to_fd, int fd);
 void	ft_putstr(char *str, int to_fd, int fd);
 size_t	ft_strlen(char *str);
@@ -56,9 +58,9 @@ void	ft_tab_free(char **str);
 size_t	ft_wordcount(char *s, char c);
 void	main_creator(char *s, char c, size_t total, char **table);
 char	**ft_split(char *s, char c);
-void	ft_exit(char	*str);
+void	ft_exit(char	*str, int i);
 void	child_process(t_info *info, char **av, char **env);
-void	parents_process(t_info *info, char **av, char **env, pid_t *pid);
+void	parents_process(t_info *info, char **av, char **env);
 void	pipex_process(t_info *info, char **av, char **env);
 void	extract_pathline(char **env, t_info *info);
 char	*part_path(char **env, t_info *info, char *cmd);

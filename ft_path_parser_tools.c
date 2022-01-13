@@ -15,7 +15,6 @@
 /* SINGLE QUOTE (') = 39 */
 void	single_quote(char *str, char **res, t_parsing *tab)
 {
-	ft_putendl_to_fd(str, 0);
 	tab->i++;
 	res[tab->j] = ft_calloc(sizeof(char), ft_tab_len(str, 39, tab->i) + 1);
 	if (!res)
@@ -27,7 +26,6 @@ void	single_quote(char *str, char **res, t_parsing *tab)
 /* DOUBLE QUOTE (") = 34 */
 void	double_quote(char *str, char **res, t_parsing *tab)
 {
-	ft_putendl_to_fd(str, 0);
 	tab->i++;
 	res[tab->j] = ft_calloc(sizeof(char), ft_tab_len(str, 34, tab->i) + 1);
 	if (!res)
@@ -39,7 +37,6 @@ void	double_quote(char *str, char **res, t_parsing *tab)
 /* SPACE = 32 */
 void	space_case(char *str, char **res, t_parsing *tab)
 {
-	ft_putendl_to_fd(str, 0);
 	res[tab->j] = ft_calloc(sizeof(char), ft_tab_len(str, 32, tab->i) + 1);
 	if (!res)
 		return ;
